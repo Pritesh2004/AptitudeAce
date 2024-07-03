@@ -1,0 +1,74 @@
+.instructions-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:aliceblue;
+  }
+  
+  .instructions-card {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  
+  mat-card-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  mat-card-subtitle {
+    font-size: 16px;
+    color: #757575;
+  }
+  
+  .quiz-details p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .quiz-rules {
+    margin-top: 20px;
+  }
+  
+  .quiz-rules h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .quiz-rules ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .quiz-rules li {
+    font-size: 16px;
+    margin: 5px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .quiz-rules li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #2196F3;
+    font-size: 20px;
+    line-height: 1;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  button[mat-raised-button] {
+    background-color: #2a9d8f;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  

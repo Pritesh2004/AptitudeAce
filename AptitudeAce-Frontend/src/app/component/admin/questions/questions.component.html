@@ -1,0 +1,33 @@
+<div class="content">
+
+  <h1>{{title}} Questions</h1>
+  <div *ngFor="let q of questions; let i = index" class="question-card">
+      <mat-card class="mat-card">
+        <mat-card-header>
+          <mat-card-title>Q{{i+1}}. {{q.content}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="options">
+          <div class="option">
+            a) {{q.option1}}
+          </div>
+          <div class="option">
+            b) {{q.option2}}
+          </div>
+          <div class="option">
+            c) {{q.option3}}
+          </div>
+          <div class="option">
+            d) {{q.option4}}
+          </div>
+        </mat-card-content>
+        <mat-card-footer>
+          <p class="answer">Answer: {{q.answer}}</p>
+          <button mat-raised-button color="warn" (click)="deleteQuestion(q.quesId)">Delete Question</button>
+  
+        </mat-card-footer>
+      </mat-card>
+  
+    </div>
+    <button [routerLink]="'/adminHome/add-question/'+qId+'/'+title" mat-raised-button color="primary">Add Question</button>
+  
+</div>

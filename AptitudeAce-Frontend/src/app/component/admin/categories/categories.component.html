@@ -1,0 +1,13 @@
+<div class="content">
+  <div class="category-cards">
+    <mat-card *ngFor="let c of categories" class="category-card">
+      <mat-card-header>
+        <mat-card-title>{{ c.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ c.description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+</div>

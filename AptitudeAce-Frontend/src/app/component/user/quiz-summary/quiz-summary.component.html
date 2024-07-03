@@ -1,0 +1,33 @@
+<div class="content">
+  <mat-card class="result-card">
+    <mat-card-header>
+      <mat-card-title>Quiz Completed</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Number of Correct answers: {{ score }} / {{ questions.length }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" routerLink="/userHome/all-quizzes">More quizzes</button>
+      <button mat-raised-button color="primary" (click)="printResult()">Print</button>
+    </mat-card-actions>
+  </mat-card>
+  
+  <div class="questions-container">
+    <mat-card *ngFor="let question of questions; let i = index" class="question-card">
+      <mat-card-header>
+        <mat-card-title>Question {{ i + 1 }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ question.content }}</p>
+        <p><strong>Correct Answer:</strong> {{ question.answer }}</p>
+        <p><strong>Your Answer:</strong> {{ selectedOptions[i] }}</p>
+        <p><strong>Result:</strong> 
+          <span [ngClass]="correctAnswers[i] ? 'correct' : 'wrong'">
+            {{ correctAnswers[i] ? 'Correct' : 'Wrong' }}
+          </span>
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+</div>

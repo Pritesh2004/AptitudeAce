@@ -1,0 +1,91 @@
+
+.quiz-container {
+  height: 90vh;
+  margin-top: 10vh; 
+  background-color: #f9f9f9; /* Light background color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 3%;
+  padding-right: 3%;
+  
+  position: relative;
+}
+
+.timer {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: white; /* White background for the timer */
+  
+  padding: 0 20px;
+  padding-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+#time-left {
+  font-weight: bold;
+  font-size: 25px;
+  color: black; /* Black color for the time left text */
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.question-card {
+  width: 100%;
+  max-width: 800px; /* Maximum width for the question card */
+  margin: 80px 0; /* Center the card */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  background-color: white; /* White background for the card */
+}
+
+mat-card-header {
+  background-color: #252729; /* Black header */
+  color: white;
+  padding: 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+mat-card-content {
+  padding: 20px;
+  background-color: #f9f9f9; /* Light grey background for content */
+  font-size: 14px;
+  color: black; /* Black text for content */
+}
+
+.options {
+  margin-top: 20px;
+}
+
+mat-radio-button {
+  display: block;
+  margin: 10px 0;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #f9f9f9; /* Light grey background for actions */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+
+
+button[mat-raised-button]:hover {
+  background-color: #2a9d8f; /* Darker shade of black on hover */
+}

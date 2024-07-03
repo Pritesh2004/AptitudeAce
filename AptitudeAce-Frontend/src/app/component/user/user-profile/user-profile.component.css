@@ -1,0 +1,78 @@
+/* src/app/profile/profile.component.css */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height:90vh;
+    margin-top: 10vh;
+  }
+  
+  .profile-toolbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+  
+  .profile-heading {
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+  .profile-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .profile-avatar {
+    background-image: url('../../../../assets/profile.png'); /* Ensure this image exists */
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+  
+  .profile-field {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .profile-field mat-icon {
+    margin-right: 10px;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+  
+  mat-card-title {
+    font-size: 1.8em;
+    font-weight: bold;
+  }
+  
+  mat-card-subtitle {
+    font-size: 1.2em;
+    color: gray;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  

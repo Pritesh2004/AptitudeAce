@@ -1,0 +1,9 @@
+Angular rich text editor component -> npm install --save @ckeditor/ckeditor5-angular
+                                      npm install --save @ckeditor/ckeditor5-build-classic
+Angular Material -> 
+                 -> npm install @angular/material @angular/cdk @angular/animations
+                 -> npm install material-design-icons --save
+
+Page loader -> npm install --save ngx-ui-loader (website -> ngx ui loader)
+
+

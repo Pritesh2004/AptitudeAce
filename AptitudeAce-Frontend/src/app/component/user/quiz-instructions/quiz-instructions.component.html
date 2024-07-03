@@ -1,0 +1,29 @@
+<div class="instructions-wrapper">
+    <mat-card class="instructions-card mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title>{{ quiz.title }}</mat-card-title>
+        <mat-card-subtitle>{{ quiz.description }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="quiz-details">
+          <p><strong>Number of Questions:</strong> {{ quiz.numberOfQuestions }}</p>
+          <p><strong>Marks :</strong> {{ quiz.maxMarks }} </p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="quiz-rules">
+          <h3>Instructions to follow</h3>
+          <ul>
+            <li>Read each question carefully.</li>
+            <li>No external help is allowed.</li>
+            <li>Each question is worth equal marks.</li>
+            <li>Do not refresh the page during the quiz.</li>
+            <li>Submit the quiz before the time limit expires.</li>
+          </ul>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="startQuiz()">Start Quiz</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

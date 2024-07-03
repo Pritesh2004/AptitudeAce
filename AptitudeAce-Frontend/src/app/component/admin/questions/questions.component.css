@@ -1,0 +1,54 @@
+.content{
+  height: 90vh;
+  margin-top: 10vh;
+}
+.question-card {
+    margin-bottom: 20px;
+  }
+  
+  .mat-card {
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .mat-card-header,
+  .mat-card-content,
+  .mat-card-footer {
+    padding: 16px;
+  }
+  
+  .mat-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .option {
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .answer {
+    margin-top: 16px;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff0000;
+    border-top: 1px solid #ccc;
+    padding-top: 8px;
+  }
+  

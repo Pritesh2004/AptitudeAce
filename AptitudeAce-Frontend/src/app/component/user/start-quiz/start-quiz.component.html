@@ -1,0 +1,39 @@
+<div class="quiz-container" *ngIf="!quizEnded">
+  <div class="timer">
+    <h1 id="time-left">Time Left: {{ formatTime(timeLeft) }}</h1>
+  </div>
+  <div class="content-wrapper">
+    <mat-card class="question-card">
+      <mat-card-header>
+        <mat-card-title>Question {{ currentQuestionIndex + 1 }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ questions[currentQuestionIndex].content }}</p>
+        <div class="options">
+          <mat-radio-group [(ngModel)]="selectedOptions[currentQuestionIndex]" (ngModelChange)="selectOption($event)">
+            <mat-radio-button [value]="questions[currentQuestionIndex].option1">
+              {{ questions[currentQuestionIndex].option1 }}
+            </mat-radio-button>
+            <mat-radio-button [value]="questions[currentQuestionIndex].option2">
+              {{ questions[currentQuestionIndex].option2 }}
+            </mat-radio-button>
+            <mat-radio-button [value]="questions[currentQuestionIndex].option3">
+              {{ questions[currentQuestionIndex].option3 }}
+            </mat-radio-button>
+            <mat-radio-button [value]="questions[currentQuestionIndex].option4">
+              {{ questions[currentQuestionIndex].option4 }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="prevQuestion()" [disabled]="currentQuestionIndex === 0">Previous</button>
+        <button mat-raised-button color="primary" (click)="nextQuestion()">
+          {{ currentQuestionIndex === questions.length - 1 ? 'Submit' : 'Next' }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<app-quiz-summary *ngIf="quizEnded" [questions]="questions" [selectedOptions]="selectedOptions"></app-quiz-summary>

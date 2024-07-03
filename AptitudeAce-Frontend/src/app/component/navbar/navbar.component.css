@@ -1,0 +1,77 @@
+.navbar {
+    height: 100px;
+    background-color: #252729;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#heading-div{
+    
+    display: flex;
+    align-items: center;
+}
+
+#heading {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 35px;
+    font-family:'Courier New', Courier, monospace;
+
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
+}
+
+.navlinks {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navlink {
+    text-decoration: none;
+    /* Removes underline */
+    font-family: Verdana;
+    font-weight: 500;
+    line-height: 1em;
+    font-size: 0.9rem;
+    transition: all .2s linear;
+    letter-spacing: 0.5px;
+    color: white;
+    /* Sets text color to white */
+}
+
+.nav-icon{
+    transition: all 0.2s ease-in-out;
+
+}
+
+.nav-icon:hover{
+    scale: 1.2;
+    transition: all 0.2s ease-in-out;
+}
+  
+.mat-icon.mat-primary{
+    color: #2a9d8f;
+    height: max-content;
+    width: max-content;
+    overflow: auto;
+    font-size: var(--mdc-typography-button-font-size, 35px);
+}
+
+#joinBtn {
+    background-color: #2a9d8f;
+    width: 135px;
+    height: 45px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border: none;
+}

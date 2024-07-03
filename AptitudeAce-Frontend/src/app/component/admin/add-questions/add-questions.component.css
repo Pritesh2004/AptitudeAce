@@ -1,0 +1,68 @@
+.content{
+  height: 90vh;
+  margin-top: 10vh;
+}
+/* CSS for Add Question form */
+
+.question-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  max-height: calc(100vh - 100px); /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px; /* Theme color for headings */
+  
+}
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between option fields */
+}
+
+.option-field {
+  flex: 1 1 calc(50% - 20px); /* Two options per row, adjusting for gap */
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-label {
+  color: black; /* Black label text */
+}
+
+textarea.mat-input-element,
+input.mat-input-element {
+  background-color: white; /* White input fields */
+  color: black; /* Black text */
+}
+
+mat-select {
+  background-color: white; /* White background for select */
+  color: black; /* Black text */
+}
+
+button.mat-raised-button {
+  background-color: #2a9d8f; /* Theme primary color */
+  color: white; /* White text */
+}
+
+button.mat-raised-button:hover {
+  background-color: #21867a; /* Darker shade on hover */
+}
+
+

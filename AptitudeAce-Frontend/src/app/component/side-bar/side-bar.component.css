@@ -1,0 +1,161 @@
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 250px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+.nav-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+  
+.nav-links-title{
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+  .sidenav mat-toolbar {
+    background-color: #252729;
+    color: #ffffff;
+  }
+
+ 
+  
+  mat-toolbar {
+    background-color: #252729;
+    color: #ffffff;
+  }
+  
+  .mat-icon-button {
+    color: #ffffff;
+  }
+  
+  .main-content {
+  }
+  
+  a.mat-list-item {
+    color: rgba(0, 0, 0, 0.87);
+  }
+  
+  a.mat-list-item:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  #nav-title{
+    cursor: pointer;
+  }
+
+  .sidebar-toolbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  #side-bar-heading{
+    margin-left: 16px;
+
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+  #heading-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #252729;
+    color: white;
+    padding: 0 1rem;
+    z-index: 10;
+    margin-bottom: 10vh;
+
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 0 1rem;
+  }
+  
+  .navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .navlinks {
+    position: absolute;
+    right: 1px;
+    display: flex;
+    justify-content:flex-end;
+    place-items: center;
+    padding-right: 20px;
+    width: 20%;
+  }
+  
+
+  #side-nav-logout{
+    position: absolute;
+    bottom: 20px;
+  }
+  
+
+
+
+
+
+
+.btn1{
+  width: 135px;
+  height: 45px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-right: 10px;
+  background-color: transparent;
+  border: #2a9d8f 1px solid;
+  color: white;
+  transition: all 0.2s ease-out;
+
+}
+
+.btn1:hover{
+  background-color: #2a9d8f;
+  transition: all 0.2s ease-out;
+}
+
+.btn2{
+  width: 135px;
+  height: 45px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-right: 10px;
+  background-color: #2a9d8f;
+  border: #2a9d8f 1px solid;
+
+  color: white;
+  transition: all 0.2s ease-out;
+
+}
+
+.btn2:hover{
+  background-color: transparent;
+  transition: all 0.2s ease-out;
+}

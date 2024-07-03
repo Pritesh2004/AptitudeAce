@@ -1,0 +1,37 @@
+
+<!-- user-login.component.html -->
+<div class="login-page">
+    <div class="login-container">
+  
+      <h2 id="login">LOGIN</h2>
+      <form #loginForm="ngForm" (submit)="loginUser()">
+        <div class="input-div">
+          <div class="input-divs">
+            <input type="text" id="username" [(ngModel)]="userRequest.username" #username="ngModel" name="username" required placeholder="Username">
+            <span *ngIf="username.invalid && username.touched" style="color: red;">
+              <span *ngIf="username.errors?.['required']">Username is required.</span>
+            </span>
+          </div>
+        
+          <div class="input-divs">
+            <input type="password" id="password" [(ngModel)]="userRequest.password" #password="ngModel" name="password" required placeholder="Password">
+            <span *ngIf="password.invalid && password.touched" style="color: red;">
+              <span *ngIf="password.errors?.['required']">Password is required.</span>
+            </span>
+          </div>
+        </div>
+        
+<!--       
+        <p id="forgotPassword">Forgot Password?</p> -->
+        <button [disabled]="loginForm.invalid" type="submit">Login</button>
+        <div id="signup-link-div">
+          <p id="signup-text">Not a member yet?</p>
+          <a id="signup-link" routerLink="/register">Sign Up</a>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+  
+  
+  <!-- <a href="{{url}}" >Sign in with Google</a> -->

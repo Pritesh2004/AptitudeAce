@@ -1,0 +1,65 @@
+<header>
+    <div class="navbar">
+        <div id="heading-div">
+            <button class="nav-icon" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M679-466 466-679l213-213 213 213-213 213Zm-559-72v-301h301v301H120Zm418 418v-301h301v301H538Zm-418 0v-301h301v301H120Zm60-478h181v-181H180v181Zm502 51 129-129-129-129-129 129 129 129Zm-84 367h181v-181H598v181Zm-418 0h181v-181H180v181Zm181-418Zm192-78ZM361-361Zm237 0Z"/></svg>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button *ngIf="!isRoleAdmin" routerLink="/userHome/user-profile" mat-menu-item>
+                    <mat-icon>account_circle</mat-icon>
+                    <span>Profile</span>
+                </button>
+                <button *ngIf="isRoleAdmin" routerLink="/adminHome/admin-profile" mat-menu-item>
+                    <mat-icon>account_circle</mat-icon>
+                    <span>Profile</span>
+                </button>
+                <button *ngIf="!isRoleAdmin" mat-menu-item routerLink="/userHome/all-quizzes">
+                    <mat-icon>quiz</mat-icon>
+                    All Quizzes
+                </button>
+                <div *ngIf="isLoggedIn && !isRoleAdmin " mat-menu-item>
+                    <button *ngFor="let c of categories" [routerLink]="'/userHome/quiz/'+c.cid">
+                        <mat-icon>quiz</mat-icon>
+                        {{c.title}}
+                    </button>
+                </div>
+
+                <button *ngIf="isRoleAdmin" mat-menu-item routerLink="/adminHome/categories">
+                    <mat-icon>menu_book</mat-icon>
+                    Categories
+                </button>
+                <button *ngIf="isRoleAdmin" mat-menu-item routerLink="/adminHome/quizzes">
+                    <mat-icon>quiz</mat-icon>
+                    Quizzes
+                </button>
+                <button *ngIf="isRoleAdmin" mat-menu-item routerLink="/adminHome/addCategories">
+                    <mat-icon>add</mat-icon>
+                    Add Categories
+                </button>
+                <button *ngIf="isRoleAdmin" mat-menu-item routerLink="/adminHome/createQuiz">
+                    <mat-icon>create</mat-icon>
+                    Create Quiz
+                </button>
+
+                <button *ngIf="isLoggedIn" (click)="logout()" mat-menu-item>
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+
+            <a id="heading" routerLink="/">AptitudeAce</a>
+        </div>
+
+
+
+        <button *ngIf="!isLoggedIn" id="joinBtn" (click)="openHome()">
+            JOIN NOW
+        </button>
+
+        <button  id="joinBtn" *ngIf="isLoggedIn" (click)="logout()" >
+            Logout
+        </button>
+    
+
+    </div>
+</header>

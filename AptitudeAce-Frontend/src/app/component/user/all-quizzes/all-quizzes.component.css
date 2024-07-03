@@ -1,0 +1,82 @@
+/* Updated CSS for the quiz-container and quiz-card */
+.content{
+  min-height: 90vh;
+  margin-top: 10vh;
+}
+.quiz-container {
+  
+  background-color: #f9f9f9; /* Light background color */
+  padding: 1%;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the cards */
+  align-items: flex-start;
+}
+
+.quiz-card {
+  flex: 1 1 calc(33.333% - 2%); /* 3 cards per row with space in between */
+  margin: 1%;
+  box-sizing: border-box;
+}
+
+mat-card {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  background-color: white; /* White background for the card */
+}
+
+mat-card-header {
+  background-color: #252729; /* Black header */
+  color: white;
+  padding: 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+mat-card-subtitle {
+  font-size: 16px;
+  color: #f9f9f9; /* Light grey subtitle */
+}
+
+mat-card-content {
+  padding: 20px;
+  background-color: #f9f9f9; /* Light grey background for content */
+  font-size: 14px;
+  color: black; /* Black text for content */
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-start;
+  padding: 16px;
+  background-color: #f9f9f9; /* Light grey background for actions */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+button[mat-raised-button] {
+  background-color: #252729; /* Black buttons */
+  color: white;
+  margin-right: 10px;
+}
+
+button[mat-button] {
+  color: black; /* Black text buttons */
+  margin-right: 10px;
+}
+
+button[mat-button]:hover {
+  background-color: #252729; /* Black background on hover */
+  color: white;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #333; /* Darker shade of black on hover */
+}

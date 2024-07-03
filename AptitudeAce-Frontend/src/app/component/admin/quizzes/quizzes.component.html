@@ -1,0 +1,23 @@
+<div class="content">
+  <div class="quiz-container">
+    <div *ngFor="let quiz of quizzes" class="quiz-card">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ quiz.title }}</mat-card-title>
+          <mat-card-subtitle>{{ quiz.category.title }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ quiz.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button [routerLink]="'/adminHome/questions/'+quiz.qId+'/'+quiz.title" mat-button color="primary">Questions</button>
+          <button mat-button color="accent">Max Marks: {{ quiz.maxMarks }}</button>
+          <button mat-button color="warn">Questions: {{ quiz.numberOfQuestions }}</button>
+          <button [routerLink]="'/adminHome/quiz/'+quiz.qId" mat-button>Update</button>
+          <button mat-button color="primary" (click)="deleteQuiz(quiz.qId)">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  
+</div>

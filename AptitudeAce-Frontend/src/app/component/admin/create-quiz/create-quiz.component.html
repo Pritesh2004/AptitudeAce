@@ -1,0 +1,74 @@
+<div class="form-container">
+    <form #quizForm="ngForm" (ngSubmit)="createQuiz()">
+      <div class="form">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            [(ngModel)]="quiz.title"
+            required
+          />
+        </div>
+    
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            [(ngModel)]="quiz.description"
+            required
+          ></textarea>
+        </div>
+    
+        <div class="form-group">
+          <label for="maxMarks">Max Marks</label>
+          <input
+            type="number"
+            id="maxMarks"
+            name="maxMarks"
+            [(ngModel)]="quiz.maxMarks"
+            required
+          />
+        </div>
+    
+        <div class="form-group">
+          <label for="numberOfQuestions">Number of Questions</label>
+          <select
+            id="numberOfQuestions"
+            name="numberOfQuestions"
+            [(ngModel)]="quiz.numberOfQuestions"
+            required
+          >
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
+    
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select
+            id="category"
+            name="category"
+            [(ngModel)]="quiz.category.cid"
+            required
+          >
+            <option *ngFor="let category of categories" [value]="category.cid">
+              {{ category.title }}
+            </option>
+          </select>
+        </div>
+    
+        <button type="submit">Create Quiz</button>
+      </div>
+      
+    </form>
+  </div>
+  
+  
+  <!-- This is for debugging purposes to see the bound data
+  <pre>{{ quiz | json }}</pre> -->
+  

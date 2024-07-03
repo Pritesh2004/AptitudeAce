@@ -1,0 +1,70 @@
+<!-- user-registration.component.html -->
+<div class="signup-page">
+
+    <div *ngIf="!otpSent" class="signup-container">
+      <p id="signup">SIGNUP</p>
+      <form class="signup-form" #signupForm="ngForm" (submit)="sendOTP(user.email)">
+        <div class="input-div">
+          <div class="input-divs">
+            <input type="text" id="username" [(ngModel)]="user.username" #username="ngModel" name="username" required minlength="4" maxlength="20" pattern="[a-zA-Z0-9]+"
+              placeholder="Username">
+              <span *ngIf="username.invalid && username.touched" style="color: red;">
+                <span *ngIf="username.errors?.['required']">Username is required.</span>
+                <span *ngIf="username.errors?.['minlength']">Username must be at least 4 characters long.</span>
+                <span *ngIf="username.errors?.['maxlength']">Username cannot exceed 20 characters.</span>
+                <span *ngIf="username.errors?.['pattern']">Username can only contain letters and numbers.</span>
+              </span>
+          </div>
+          
+          <div class="input-divs">
+            <input type="text" id="fullName" [(ngModel)]="user.fullName" #fullName="ngModel" name="fullName" required minlength="2" maxlength="50" pattern="[a-zA-Z ]+" placeholder="Full Name">
+            <span *ngIf="fullName.invalid && fullName.touched" style="color: red;">
+              <span *ngIf="fullName.errors?.['required']">Full Name is required.</span>
+              <span *ngIf="fullName.errors?.['minlength']">Full Name must be at least 2 characters long.</span>
+              <span *ngIf="fullName.errors?.['maxlength']">Full Name cannot exceed 50 characters.</span>
+              <span *ngIf="fullName.errors?.['pattern']">Full Name can only contain letters and spaces.</span>
+            </span>
+          </div>
+  
+          <div class="input-divs">
+            <input type="email" id="email" [(ngModel)]="user.email" #email="ngModel" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="Email">
+            <span *ngIf="email.invalid && email.touched" style="color: red;">
+              <span *ngIf="email.errors?.['required']">Email is required.</span>
+              <span *ngIf="email.errors?.['pattern']">Please enter a valid email address.</span>
+            </span>
+          </div>
+          
+          <div class="input-divs">
+            <input type="password" id="password" [(ngModel)]="user.password" #password="ngModel" name="password" required minlength="6" maxlength="20" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$" placeholder="Password">
+            <span *ngIf="password.invalid && password.touched" style="color: red;">
+              <span *ngIf="password.errors?.['required']">Password is required.</span>
+              <span *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</span>
+              <span *ngIf="password.errors?.['maxlength']">Password cannot exceed 20 characters.</span>
+              <span *ngIf="password.errors?.['pattern']">Password must contain at least one uppercase letter, one lowercase letter, and one number.</span>
+            </span>
+          </div>
+          
+        </div>
+  
+        <button [disabled]="signupForm.invalid" type="submit">Register</button>
+  
+        <div id="login-link-div">
+          <p id="login-text">
+            Already have a account?
+          </p>
+          <a routerLink="/login" id="login-link">Login</a>
+        </div>
+      </form>
+    </div>
+  
+    <div *ngIf="otpSent">
+      <mat-card class="otp-card">
+      <form class="otp-div" #otpForm="ngForm" (submit)="verifyOtp(formOtp.fOtp)">
+        <p id="otp-heading">OTP Authentication</p>
+        <input id="otp-input" type="text" [(ngModel)]="formOtp.fOtp" #fOtp="ngModel" name="fOtp" required placeholder="Enter OTP">
+        <button id="otp-btn" type="submit">Verify OTP</button>
+      </form>
+    </mat-card>
+    </div>
+  
+  </div>
