@@ -1,0 +1,33 @@
+<div class="content">
+  <div id="heading">
+    <h1>{{ title }}</h1>
+    <p>Select a quiz from the available subcategories to test your knowledge!</p>
+  </div>
+
+  <div class="category-cards">
+    <mat-card *ngFor="let subCategory of subCategories" class="category-card">
+      <mat-card-header>
+        <mat-card-title>{{ subCategory.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="subCategory.quizzes && subCategory.quizzes.length > 0">
+          <ul class="quiz-list">
+            <!-- Display only the first 3 quizzes -->
+            <li *ngFor="let quiz of subCategory.quizzes | slice:0:3"> 
+              <div class="quiz-div">
+                <a [routerLink]="'/instructions/'+quiz.qId">{{ quiz.title }}</a>
+              </div>
+            </li>
+          </ul>
+          <!-- Show 'More' button if there are more than 3 quizzes -->
+          <div *ngIf="subCategory.quizzes.length > 3" class="more-button">
+            <button mat-button color="accent" [routerLink]="'/user-subCategory/'+subCategory.cid">More</button>
+          </div>
+        </div>
+        <div *ngIf="!subCategory.quizzes || subCategory.quizzes.length === 0" class="no-quizzes">
+          <p>No Quizzes available</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

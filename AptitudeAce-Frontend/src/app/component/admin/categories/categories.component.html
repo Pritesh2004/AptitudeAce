@@ -1,13 +1,33 @@
 <div class="content">
+  <div id="heading">
+    <h1>Manage Categories and Subcategories</h1>
+    <p>Edit or delete categories and subcategories as needed.</p>
+  </div>
+
   <div class="category-cards">
     <mat-card *ngFor="let c of categories" class="category-card">
       <mat-card-header>
-        <mat-card-title>{{ c.title }}</mat-card-title>
+        <mat-card-title>
+          {{ c.title }}
+        </mat-card-title>
+        <button mat-raised-button color="accent" (click)="deleteCategory(c.id)">Delete</button>
       </mat-card-header>
       <mat-card-content>
-        <p>{{ c.description }}</p>
+        <div *ngIf="c.subCategories && c.subCategories.length > 0">
+          <ul class="sub-category-list">
+            <li *ngFor="let subCategory of c.subCategories">
+              <div class="subCategory-div">
+                <a [routerLink]="'/adminHome/subCategories/'+subCategory.cid">{{ subCategory.title }}</a>
+                <button mat-raised-button color="warn" (click)="deleteSubCategory(subCategory.cid)">Delete</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="!c.subCategories || c.subCategories.length === 0" class="no-subCategories">
+          <p>No Sub Categories available</p>
+        </div>
+        <button mat-raised-button color="primary" [routerLink]="'/adminHome/addSubCategories/'+c.id">Add Sub-Categories</button>
       </mat-card-content>
     </mat-card>
   </div>
-  
 </div>

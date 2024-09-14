@@ -1,0 +1,28 @@
+<div class="content">
+  <div class="category-cards">
+    <mat-card *ngFor="let c of [subCategory]" class="category-card">
+      <mat-card-header>
+        <mat-card-title>{{ c.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="c.quizzes && c.quizzes.length > 0">
+          <ul>
+            <li *ngFor="let quiz of c.quizzes"> 
+              <button mat-raised-button color="primary"
+                [routerLink]="'/adminHome/questions/'+quiz.qId+'/'+quiz.title">
+                {{ quiz.title }}
+              </button>
+              <button mat-raised-button color="accent" (click)="deleteQuiz(quiz.qId)">Delete</button>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="!c.quizzes || c.quizzes.length === 0">
+          <p>No Quizzes available</p>
+        </div>
+        <button mat-raised-button color="primary" [routerLink]="'/adminHome/createQuiz/'+c.cid">
+          Add Quizzes
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

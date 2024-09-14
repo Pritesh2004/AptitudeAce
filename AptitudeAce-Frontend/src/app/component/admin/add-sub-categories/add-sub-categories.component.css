@@ -1,0 +1,44 @@
+.content {
+    height: 100vh;
+      background-color: aliceblue;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    
+  
+    .form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40vw;
+      height: 40vh;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);  }
+   
+    
+    label {
+      font-size: 20px;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 7px;
+    }
+    
+    input, textarea {
+      width: 30vw;
+      padding: 8px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    
+    button {
+      margin-top: 10px;
+      height: 50px;
+      width: 180px;
+      background-color:#2a9d8f;
+      color: black;
+    }
+    

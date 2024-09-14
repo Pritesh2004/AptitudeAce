@@ -1,98 +1,74 @@
-/* General content styles */
+
 .content {
   margin-top: 10vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:center;
   padding: 20px;
 }
-
-/* Heading styles */
-#heading {
-  margin-top: 40px;
+#heading{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+margin-top: 30px;
 }
-
-#heading h1 {
-  margin-bottom: 0;
+h1 {
   font-size: 2.6rem;
-  height: 2.7rem;
   font-weight: bold;
-  color: #00796b;
+  color: #00796b; /* Material Design primary color */
+  margin: 0;
+  padding-bottom: 10px;
   background: linear-gradient(90deg, rgba(0,121,107,1) 0%, rgba(38,198,218,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-#heading p {
-  margin-top: 10px;
-  margin-bottom: 0;
-
+p {
   font-size: 1.25rem;
   color: #666;
   text-align: center;
+  margin-bottom: 40px;
 }
 
-/* Category card styling */
 .category-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   width: 100%;
+  max-width: 1200px;
 }
 
 .category-card {
   background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 20px;
-  transition: transform 0.3s ease;
-  box-shadow: none; /* Remove card shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .category-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 mat-card-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #00796b;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-mat-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-mat-card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  color: #00a08d;;
 }
 
 .sub-category-list {
+  list-style-type: none;
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
 .sub-category-list li {
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 /* Style for the subCategory div */
 .subCategory-div {
   border-bottom: 1px solid #eee;  /* Light divider between subcategories */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -112,17 +88,25 @@ mat-card-content {
   transition: color 0.3s, background-color 0.3s ease;
 }
 
-.subCategory-div a:hover {
-  color: #00796b;  /* Change link color on hover */
+/* .subCategory-div a:hover {
+  color: #0056b3;
+} */
+
+/* Style for the 'More' button */
+.more-button {
+  text-align: right;
+  margin-top: 10px;
 }
 
-.no-subCategories {
+.more-button button {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: none;  /* Prevent text from becoming uppercase */
+}
+
+.no-quizzes {
   text-align: center;
   color: #666;
   font-style: italic;
   padding: 20px 0;
-}
-
-button[mat-raised-button] {
-  font-weight: bold;
 }

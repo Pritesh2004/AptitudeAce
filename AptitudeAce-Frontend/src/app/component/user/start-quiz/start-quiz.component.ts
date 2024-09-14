@@ -1,6 +1,6 @@
 import { LocationStrategy } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { QuestionService } from 'src/app/services/question.service';
 import { QuizService } from 'src/app/services/quiz.service';
@@ -34,10 +34,10 @@ export class StartQuizComponent implements OnInit {
   timeLeft: number = 600; // Example total time in seconds
   totalTime: number = 600; // Total quiz time in seconds
   
-  constructor(private locationSt: LocationStrategy, private questionService: QuestionService, private route: ActivatedRoute) {}
+  constructor(private router: Router,private locationSt: LocationStrategy, private questionService: QuestionService, private route: ActivatedRoute) {}
   
   ngOnInit(): void {
-
+    
     this.preventBackButton();
     this.qId = this.route.snapshot.params['qId'];
     this.questionService.getQuestionsOfQuiz(this.qId).subscribe(
@@ -56,8 +56,39 @@ export class StartQuizComponent implements OnInit {
     this.startTimer();
   }
   
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotification($event: any): void {
+    if (!this.quizEnded) {
+      $event.preventDefault();
+      $event.returnValue = '';
+      // A blank string is required for some browsers to trigger the dialog
+    }
+  }
 
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    if (!this.quizEnded) {
+      return Swal.fire({
+        title: 'Unsaved Changes',
+        text: 'Are you sure you want to leave? Your progress will be lost.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Leave',
+        cancelButtonText: 'Stay'
+      }).then((result) => {
+        return result.isConfirmed;
+      });
+    }
+    return true;
+  }
 
+  preventBackButton() {
+    history.pushState(null, '', location.href);
+    this.locationSt.onPopState(() => {
+      history.pushState(null, '', location.href);
+    });
+  }
+
+  
  
   currentQuestionIndex = 0;
   selectedOptions: string[] = [];
@@ -105,13 +136,7 @@ export class StartQuizComponent implements OnInit {
     }, 1000);
   }
 
-  preventBackButton() {
-    history.pushState(null, '', location.href);
-    this.locationSt.onPopState(() => {
-      history.pushState(null, '', location.href);
-    });
-  }
-  
+
 
   formatTime(seconds: number): string {
     const minutes: number = Math.floor(seconds / 60);
@@ -123,13 +148,7 @@ export class StartQuizComponent implements OnInit {
     return (this.timeLeft / this.totalTime) * 100;
   }
   
-  canDeactivate(): Observable<boolean> | boolean {
-    if (!this.quizEnded) {
-      return confirm('Are you sure you want to leave the quiz? Your progress will be lost.');
-    }
-    return true;
-  }
-  
+
   endQuiz(): void {
     this.quizEnded = true;
     // Any cleanup, calculations, or navigation logic goes here

@@ -1,0 +1,33 @@
+<div class="content">
+    <div id="heading">
+        <h1>Welcome to AptitudeAce!</h1>
+        <p>Aptitude questions and answers for your placement interviews and competitive exams!</p>
+    </div>
+
+    <div class="category-cards">
+        <mat-card *ngFor="let c of categories" class="category-card">
+            <mat-card-header>
+                <mat-card-title>{{ c.title }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div *ngIf="c.subCategories && c.subCategories.length > 0">
+                    <ul class="sub-category-list">
+                        <li *ngFor="let subCategory of c.subCategories | slice:0:3"> 
+                            <div class="subCategory-div">
+                                <a [routerLink]="'/user-subCategory/'+subCategory.cid">{{ subCategory.title }}</a>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                    <!-- Display 'More' button if there are more than 4 subcategories -->
+                    <div *ngIf="c.subCategories.length > 3" class="more-button">
+                        <button mat-button color="accent" [routerLink]="'/subCategories/'+c.id+'/'+c.title">More</button>
+                    </div>
+                </div>
+                <div *ngIf="!c.subCategories || c.subCategories.length === 0" class="no-quizzes">
+                    <p>No quizzes available</p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

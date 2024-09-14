@@ -4,27 +4,40 @@
             <p id="side-bar-heading">AptitudeAce </p>  
       </mat-toolbar>
         <mat-nav-list>
-            <a  *ngIf="isRoleAdmin" mat-list-item routerLink="/adminHome/admin-profile">
+            <a   mat-list-item routerLink="/">
+                <div class="nav-links">
+                    <mat-icon >home</mat-icon>
+                    <p class="nav-links-title">Home</p>
+                </div>
+                
+            </a>
+            <a  *ngIf="isRoleAdmin && user" mat-list-item routerLink="/adminHome/admin-profile">
                 <div class="nav-links">
                     <mat-icon >account_circle</mat-icon>
                     <p class="nav-links-title">Profile</p>
                 </div>
                 
             </a>
-            <a  *ngIf="!isRoleAdmin" mat-list-item routerLink="/userHome/user-profile">
+            <a  *ngIf="!isRoleAdmin && user" mat-list-item routerLink="/userHome/user-profile">
                 <div class="nav-links">
                     <mat-icon >account_circle</mat-icon>
                 <p class="nav-links-title">Profile</p>
                 </div>
             </a>
-            <a  *ngIf="!isRoleAdmin && user" mat-list-item routerLink="/userHome/all-quizzes">
+            <a  *ngIf="!isRoleAdmin" mat-list-item routerLink="/user-categories">
+                <div class="nav-links">
+                    <mat-icon >quiz</mat-icon>
+                    <p class="nav-links-title">Categories</p>
+                </div>
+            </a>
+            <a  *ngIf="!isRoleAdmin" mat-list-item routerLink="/all-quizzes">
                 <div class="nav-links">
                     <mat-icon >quiz</mat-icon>
                     <p class="nav-links-title">All Quizzes</p>
                 </div>
             </a>
             <div *ngIf="!isRoleAdmin">
-                <a  *ngFor="let c of categories" mat-list-item [routerLink]="'/userHome/quiz/'+c.cid">
+                <a  *ngFor="let c of categories" mat-list-item [routerLink]="'/subCategories/'+c.id+'/'+c.title">
                     <div class="nav-links">
                         <mat-icon >category</mat-icon>
                     <p class="nav-links-title">{{c.title}}</p>
@@ -49,12 +62,12 @@
                 <p class="nav-links-title">View Quizzes</p>
                 </div>
             </a>
-            <a  *ngIf="isRoleAdmin" mat-list-item routerLink="/adminHome/createQuiz">
+            <!-- <a  *ngIf="isRoleAdmin" mat-list-item routerLink="/adminHome/createQuiz">
                 <div class="nav-links">
                     <mat-icon >add_box</mat-icon>
                 <p class="nav-links-title">Add Quizzes</p>
                 </div>
-            </a>
+            </a> -->
             <a id="side-nav-logout" *ngIf="isLoggedIn" mat-list-item (click)="logout()">
                 <div class="nav-links">
                     <mat-icon>logout</mat-icon>

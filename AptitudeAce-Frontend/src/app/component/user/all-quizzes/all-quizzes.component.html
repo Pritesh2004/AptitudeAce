@@ -1,6 +1,9 @@
-<!-- Your HTML structure remains the same -->
 <div class="content">
-
+  <div id="heading">
+    <h1>Quizzes</h1>
+    <p>Select a quiz from below!</p>
+  </div>
+  
   <div class="quiz-container">
     <div *ngFor="let quiz of quizzes" class="quiz-card">
       <mat-card>
@@ -8,16 +11,12 @@
           <mat-card-title>{{ quiz.title }}</mat-card-title>
           <mat-card-subtitle>{{ quiz.category.title }}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
-          <p>{{ quiz.description }}</p>
-        </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary" [routerLink]="'/userHome/instructions/'+quiz.qId">Start</button>
-          <button mat-button color="accent">Max Marks: {{ quiz.maxMarks }}</button>
-          <button mat-button color="warn">Questions: {{ quiz.numberOfQuestions }}</button>
+          <button mat-button color="accent" [routerLink]="'/instructions/'+quiz.qId">Start</button>
+          <!-- <button mat-button color="accent">Max Marks: {{ quiz.maxMarks }}</button>
+          <button mat-button color="accent">Questions: {{ quiz.numberOfQuestions }}</button> -->
         </mat-card-actions>
       </mat-card>
     </div>
   </div>
-  
 </div>

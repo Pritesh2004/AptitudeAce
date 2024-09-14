@@ -46,6 +46,12 @@ import { CanDeactivateGuard } from './services/authGuards/can-deactivate-guard.s
 import { QuizSummaryComponent } from './component/user/quiz-summary/quiz-summary.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
 import {MatMenuModule} from '@angular/material/menu';
+import { UserCategoriesComponent } from './component/user/user-categories/user-categories.component';
+import { AddSubCategoriesComponent } from './component/admin/add-sub-categories/add-sub-categories.component';
+import { SubCategoriesComponent } from './component/admin/sub-categories/sub-categories.component';
+import { UserSubCategoryComponent } from './component/user/user-sub-category/user-sub-category.component';
+import { SubCategoriesOfCategoryComponent } from './component/user/sub-categories-of-category/sub-categories-of-category.component';
+import { ContactComponent } from './component/contact/contact.component';
 
 
 @NgModule({
@@ -71,7 +77,13 @@ import {MatMenuModule} from '@angular/material/menu';
     QuizOfCategoryComponent,
     QuizInstructionsComponent,
     StartQuizComponent,
-    QuizSummaryComponent
+    QuizSummaryComponent,
+    UserCategoriesComponent,
+    AddSubCategoriesComponent,
+    SubCategoriesComponent,
+    UserSubCategoryComponent,
+    SubCategoriesOfCategoryComponent,
+    ContactComponent
   ],
   imports: [
     NgxUiLoaderModule,

@@ -11,7 +11,6 @@ export class AddCategoriesComponent {
 
   category={
     title:'',
-    description:''
   }
 
   constructor(private categoryService: CategoryService, private snack: MatSnackBar){}

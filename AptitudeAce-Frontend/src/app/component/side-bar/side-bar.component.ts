@@ -22,7 +22,7 @@ export class SideBarComponent {
   ngOnInit(): void {
     this.isLoggedIn = this.loginService.isLoggenIn();
     this.user = this.loginService.getUser();
-  
+    this.loadCategories();
     if (this.loginService.getUserRole() === "ADMIN") {
       this.isRoleAdmin = true;
     }
@@ -30,22 +30,15 @@ export class SideBarComponent {
     this.loginService.loginStatusSubject.asObservable().subscribe(data => {
       this.isLoggedIn = this.loginService.isLoggenIn();
       this.user = this.loginService.getUser();
+      this.loadCategories();
       if (this.loginService.getUserRole() === "ADMIN") {
         this.isRoleAdmin = true;
       } else {
         this.isRoleAdmin = false;
       }
-  
-      // Fetch categories if user is logged in
-      if (this.isLoggedIn) {
-        this.loadCategories();
-      }
-    });
-  
-    // Fetch categories if user is logged in
-    if(this.user != null && this.isLoggedIn) {
-      this.loadCategories();
-    }
+      
+    });    
+    
   }
   
   loadCategories() {

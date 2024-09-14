@@ -12,6 +12,17 @@
   position: relative;
 }
 
+.leave{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#leave-btn{
+  width: 140px;
+  height: 40px;
+}
+
 .timer {
   position: absolute;
   top: 20px;

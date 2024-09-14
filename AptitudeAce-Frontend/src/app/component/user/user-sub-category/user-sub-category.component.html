@@ -1,0 +1,23 @@
+<div class="content">
+  <div class="single-category-card">
+    <mat-card class="big-category-card">
+      <mat-card-header>
+        <mat-card-title>{{ subCategory.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="subCategory.quizzes && subCategory.quizzes.length > 0">
+          <ul class="quiz-list">
+            <li *ngFor="let quiz of subCategory.quizzes"> 
+              <div class="quiz-div">
+                <a [routerLink]="'/instructions/'+quiz.qId">{{ quiz.title }}</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="!subCategory.quizzes || subCategory.quizzes.length === 0" class="no-quizzes">
+          <p>No Quizzes available</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

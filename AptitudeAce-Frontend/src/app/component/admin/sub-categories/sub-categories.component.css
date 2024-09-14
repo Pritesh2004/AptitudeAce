@@ -1,0 +1,50 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9; /* Off-white background */
+  }
+  
+  .category-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .category-card {
+    width: 300px;
+    max-width: calc(100% - 20px); /* Adjust according to your layout */
+    background-color: white; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px); /* Lift on hover */
+  }
+  
+  mat-card-header {
+    background-color: #2a9d8f; /* Theme color for card header */
+    color: white; /* White text */
+    padding: 12px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  mat-card-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  mat-card-content {
+    padding: 12px;
+    background-color: white; /* White background for content */
+    color: black; /* Black text */
+  }
+  
+  p {
+    margin: 0;
+  }
+  

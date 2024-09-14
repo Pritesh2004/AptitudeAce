@@ -48,19 +48,19 @@
           </select>
         </div>
     
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="category">Category</label>
           <select
             id="category"
             name="category"
-            [(ngModel)]="quiz.category.cid"
+            [(ngModel)]="quiz.subCategory.cid"
             required
           >
             <option *ngFor="let category of categories" [value]="category.cid">
               {{ category.title }}
             </option>
           </select>
-        </div>
+        </div> -->
     
         <button type="submit">Create Quiz</button>
       </div>

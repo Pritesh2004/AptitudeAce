@@ -3,7 +3,7 @@
   }
   
   .sidenav {
-    width: 250px;
+    width: 280px;
     background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
@@ -59,6 +59,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    height: 10vh;
   }
   
   #side-bar-heading{
@@ -76,6 +77,7 @@
     align-items: center;
   }
   .navbar {
+    height: 10vh;
     position: fixed;
     top: 0;
     display: flex;

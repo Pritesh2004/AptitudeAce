@@ -1,4 +1,7 @@
 <div class="quiz-container" *ngIf="!quizEnded">
+  <div class="leave">
+    <button id="leave-btn" mat-raised-button color="accent" routerLink="/">Leave</button>
+  </div>
   <div class="timer">
     <h1 id="time-left">Time Left: {{ formatTime(timeLeft) }}</h1>
   </div>

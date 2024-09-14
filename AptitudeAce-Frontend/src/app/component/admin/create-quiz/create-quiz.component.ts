@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { QuizService } from 'src/app/services/quiz.service';
 
@@ -16,28 +17,20 @@ export class CreateQuizComponent implements OnInit{
     maxMarks:'',
     numberOfQuestions:'',
     active:true,
-    category : {
-      cid:'',
-    },
+    subCategoryId:0
   };
 
-  categories:any=[];
-
-  constructor(private quizService: QuizService, private categoryService: CategoryService, private snack: MatSnackBar){}
+  id = 0;
+  constructor(private route : ActivatedRoute,private quizService: QuizService, private categoryService: CategoryService, private snack: MatSnackBar){}
 
   ngOnInit(): void {
-    
-    this.categoryService.getCategories().subscribe(
-      data=>{
-        this.categories=data;
-      },
-      error=>{
-        console.log(error);
-      } 
-    )
+    this.id = this.route.snapshot.params['id'];
+
   }
 
   createQuiz(){
+    
+    this.quiz.subCategoryId = this.id;
     console.log(this.quiz);
     this.quizService.addQuiz(this.quiz).subscribe(
       data=>{

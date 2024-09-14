@@ -11,7 +11,9 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-
+  postUserQuery(userQuery: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/user/query`, userQuery)
+  }
   
   registerUser(user: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/user/`, user);

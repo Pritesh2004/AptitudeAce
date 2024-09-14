@@ -12,7 +12,7 @@
               <p>{{ quiz.description }}</p>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-raised-button color="primary" [routerLink]="'/userHome/instructions/'+quiz.qId">Start</button>
+              <button mat-raised-button color="primary" [routerLink]="'/instructions/'+quiz.qId">Start</button>
               <button mat-button color="accent">Max Marks: {{ quiz.maxMarks }}</button>
               <button mat-button color="warn">Questions: {{ quiz.numberOfQuestions }}</button>
             </mat-card-actions>

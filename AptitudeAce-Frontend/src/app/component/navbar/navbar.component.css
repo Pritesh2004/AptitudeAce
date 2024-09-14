@@ -35,7 +35,6 @@
 
 .navlink {
     text-decoration: none;
-    /* Removes underline */
     font-family: Verdana;
     font-weight: 500;
     line-height: 1em;
@@ -43,7 +42,6 @@
     transition: all .2s linear;
     letter-spacing: 0.5px;
     color: white;
-    /* Sets text color to white */
 }
 
 .nav-icon{

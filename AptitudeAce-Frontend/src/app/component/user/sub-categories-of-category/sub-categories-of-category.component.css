@@ -1,107 +1,85 @@
-/* General content styles */
 .content {
   margin-top: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  height: 100vh;
 }
 
-/* Heading styles */
 #heading {
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+  margin-top: 50px;
 }
 
-#heading h1 {
-  margin-bottom: 0;
+h1 {
   font-size: 2.6rem;
-  height: 2.7rem;
   font-weight: bold;
   color: #00796b;
+  margin: 0;
+  padding-bottom: 10px;
   background: linear-gradient(90deg, rgba(0,121,107,1) 0%, rgba(38,198,218,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-#heading p {
-  margin-top: 10px;
-  margin-bottom: 0;
-
+p {
   font-size: 1.25rem;
   color: #666;
   text-align: center;
+  margin-bottom: 40px;
 }
 
-/* Category card styling */
 .category-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   width: 100%;
+  max-width: 1200px;
 }
 
 .category-card {
   background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 20px;
-  transition: transform 0.3s ease;
-  box-shadow: none; /* Remove card shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .category-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 mat-card-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #00796b;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  color: #00a08d;
 }
 
-mat-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-mat-card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sub-category-list {
+.quiz-list {
+  list-style-type: none;
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
-.sub-category-list li {
-  margin-bottom: 10px;
+.quiz-list li {
+  margin: 10px 0;
 }
+
 
 /* Style for the subCategory div */
-.subCategory-div {
+.quiz-div {
   border-bottom: 1px solid #eee;  /* Light divider between subcategories */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   transition: background-color 0.3s ease-in-out;
 }
 
-.subCategory-div:hover {
+.quiz-div:hover {
   background-color: rgba(0, 255, 179, 0.1);  /* Add subtle background on hover */
 }
 
 /* Style for the a tag */
-.subCategory-div a {
+.quiz-div a {
   text-decoration: none;
   color: #666;  /* Change link color to a modern blue */
   font-weight: 600;  /* Make the link text bold */
@@ -112,17 +90,11 @@ mat-card-content {
   transition: color 0.3s, background-color 0.3s ease;
 }
 
-.subCategory-div a:hover {
-  color: #00796b;  /* Change link color on hover */
-}
 
-.no-subCategories {
+/* Center 'No Quizzes available' text */
+.no-quizzes {
   text-align: center;
   color: #666;
   font-style: italic;
   padding: 20px 0;
-}
-
-button[mat-raised-button] {
-  font-weight: bold;
 }

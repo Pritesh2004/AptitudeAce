@@ -21,99 +21,126 @@ import { QuizOfCategoryComponent } from './component/user/quiz-of-category/quiz-
 import { QuizInstructionsComponent } from './component/user/quiz-instructions/quiz-instructions.component';
 import { StartQuizComponent } from './component/user/start-quiz/start-quiz.component';
 import { CanDeactivateGuard } from './services/authGuards/can-deactivate-guard.service';
+import { UserCategoriesComponent } from './component/user/user-categories/user-categories.component';
+import { AddSubCategoriesComponent } from './component/admin/add-sub-categories/add-sub-categories.component';
+import { SubCategoriesComponent } from './component/admin/sub-categories/sub-categories.component';
+import { UserSubCategoryComponent } from './component/user/user-sub-category/user-sub-category.component';
+import { SubCategoriesOfCategoryComponent } from './component/user/sub-categories-of-category/sub-categories-of-category.component';
+import { ContactComponent } from './component/contact/contact.component';
 
 const routes: Routes = [
 
-{
-  path:'',
-  component:StartingPageComponent,
- 
-},
+  {
+    path: '',
+    component: StartingPageComponent,
 
-{
-  path:'login',
-  component:LoginComponent,
-},
+  },
 
-{
-  path:'register',
-  component:RegisterComponent,
-},
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
 
-{
-  path:'userHome',
-  component:UserHomeComponent,
-  canActivate:[NormalUserGuard],
-  children:[
-    {
-      path:'user-profile',
-      component:UserProfileComponent
-    },
-    {
-      path:'all-quizzes',
-      component:AllQuizzesComponent
-    },{
-      path:'quiz/:cid',
-      component:QuizOfCategoryComponent
-    }
-    ,{
-      path:'instructions/:qId',
-      component:QuizInstructionsComponent
-    }
-    
-  ]
-  
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+  },
 
-},
+  {
+    path: 'userHome',
+    component: UserHomeComponent,
+    canActivate: [NormalUserGuard],
+    children: [
+      {
+        path: 'user-profile',
+        component: UserProfileComponent
+      }
+    ]
+  },
+  {
+    path: 'user-categories',
+    component : UserCategoriesComponent
+  },
+  {
+    path: 'user-subCategory/:id',
+    component : UserSubCategoryComponent
+  },
+  {
+    path: 'subCategories/:id/:title',
+    component : SubCategoriesOfCategoryComponent
+  },
 
-{
-  path:'start-quiz/:qId',
-  component:StartQuizComponent,
-  canActivate:[NormalUserGuard],
-  canDeactivate:[CanDeactivateGuard]
+  {
+    path: 'all-quizzes',
+    component: AllQuizzesComponent
+  }, {
+    path: 'quiz/:cid',
+    component: QuizOfCategoryComponent
+  }
+  , {
+    path: 'instructions/:qId',
+    component: QuizInstructionsComponent
+  },
 
-},
+  {
+    path: 'start-quiz/:qId',
+    component: StartQuizComponent,
+    // canActivate: [NormalUserGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
 
-{
-  path:'adminHome',
-  component:AdminHomeComponent,
-  canActivate:[AdminGuard],
-  children:[
-    {
-      path:'admin-profile',
-      component:AdminProfileComponent
-    },
-    {
-      path:'createQuiz',
-      component: CreateQuizComponent,
-    },
-    {
-      path:'addCategories',
-      component: AddCategoriesComponent,
-    },
-    {
-      path:'categories',
-      component: CategoriesComponent,
-    },
-    {
-      path:'quizzes',
-      component: QuizzesComponent,
-    },
-    {
-      path:'quiz/:qId',
-      component:UpdateQuizComponent
-    },
-    {
-      path:'questions/:qId/:title',
-      component:QuestionsComponent
-    },
-    {
-      path:'add-question/:qId/:title',
-      component:AddQuestionsComponent
-    }
-    
-  ]
-},
+  {
+    path: 'adminHome',
+    component: AdminHomeComponent,
+    canActivate: [AdminGuard],
+    children: [
+      {
+        path: 'admin-profile',
+        component: AdminProfileComponent
+      },
+      {
+        path: 'createQuiz/:id',
+        component: CreateQuizComponent,
+      },
+      {
+        path: 'addCategories',
+        component: AddCategoriesComponent,
+      },
+      {
+        path: 'categories',
+        component: CategoriesComponent,
+      },
+      {
+        path: 'addSubCategories/:cId',
+        component: AddSubCategoriesComponent,
+      },
+      {
+        path: 'subCategories/:id',
+        component: SubCategoriesComponent,
+      },
+      {
+        path: 'quizzes',
+        component: QuizzesComponent,
+      },
+      {
+        path: 'quiz/:qId',
+        component: UpdateQuizComponent
+      },
+      {
+        path: 'questions/:qId/:title',
+        component: QuestionsComponent
+      },
+      {
+        path: 'add-question/:qId/:title',
+        component: AddQuestionsComponent
+      }
+
+    ]
+  },
 
 ];
 

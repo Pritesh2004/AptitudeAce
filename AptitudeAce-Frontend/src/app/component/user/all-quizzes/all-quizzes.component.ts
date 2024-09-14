@@ -18,6 +18,7 @@ export class AllQuizzesComponent implements OnInit{
     this.quizService.getQuizzes().subscribe(
       data=>{
         this.quizzes = data;
+        console.log(this.quizzes)
     },
     error =>{
       console.log(error);
