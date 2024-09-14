@@ -3,12 +3,13 @@ package com.aptitude.service;
 import java.util.List;
 import java.util.Set;
 
-import com.aptitude.entity.Category;
+import com.aptitude.entity.SubCategory;
+import com.aptitude.dto.QuizDto;
 import com.aptitude.entity.Quiz;
 
 public interface QuizService {
 
-    public Quiz addQuiz(Quiz quiz);
+    public Quiz addQuiz(QuizDto quiz);
 
     public Quiz updateQuiz(Quiz quiz);
 
@@ -18,10 +19,9 @@ public interface QuizService {
 
     public void deleteQuiz(Long quizId);
 
-
-    public List<Quiz> getQuizzesOfCategory(Category category);
+    public List<Quiz> getQuizzesOfSubCategory(SubCategory SubCategory);
 
     public List<Quiz> getActiveQuizzes();
 
-    public List<Quiz> getActiveQuizzesOfCategory(Category c);
+    public List<Quiz> getActiveQuizzesOfSubCategory(SubCategory c);
 }

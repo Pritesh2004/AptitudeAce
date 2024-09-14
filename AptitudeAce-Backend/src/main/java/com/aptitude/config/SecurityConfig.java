@@ -34,21 +34,14 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-		http
-		.csrf().disable()
-		.cors().disable()
-		.authorizeRequests()
-		.requestMatchers("/generate-token", "/user/", "/user/verify-otp").permitAll()
-		.requestMatchers(HttpMethod.OPTIONS).permitAll()
-		.anyRequest().authenticated()
-		.and()
-		.sessionManagement()
-		.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-		.and()
-	    .exceptionHandling()
-		.authenticationEntryPoint(entryPoint);
+		http.csrf().disable().cors().disable().authorizeRequests()
+				.requestMatchers("/generate-token", "/user/", "/user/verify-otp","/user/query", "/categories/getAll",
+						"/categories/getById/{id}","/categories/getSubCategories/{categoryId}", "/subCategories/getById/{id}", "/subCategories/getAll",
+						"/quiz/getAll", "/quiz/getById/{qid}", "/quiz/getBySubCategory/{cid}", "/question/quiz/{qid}")
+				.permitAll().requestMatchers(HttpMethod.OPTIONS).permitAll().anyRequest().authenticated().and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().exceptionHandling()
+				.authenticationEntryPoint(entryPoint);
 
-		
 		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
 		http.authenticationProvider(daoAuthenticationProvider());
@@ -71,7 +64,7 @@ public class SecurityConfig {
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 //	@Bean
 //	public PasswordEncoder passwordEncoder() {
 //		return NoOpPasswordEncoder.getInstance();

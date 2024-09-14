@@ -1,6 +1,7 @@
 package com.aptitude.entity;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -12,6 +13,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
@@ -36,9 +38,10 @@ public class Quiz {
     //add..
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Category category;
+    @JoinColumn(name = "sub_category_id", nullable = false)
+    private SubCategory subCategory;
 
-    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private Set<Question> questions = new HashSet<>();
 
@@ -94,12 +97,12 @@ public class Quiz {
         this.active = active;
     }
 
-    public Category getCategory() {
-        return category;
+    public SubCategory getCategory() {
+        return subCategory;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategory(SubCategory subCategory2) {
+        this.subCategory = subCategory2;
     }
 
     public Set<Question> getQuestions() {

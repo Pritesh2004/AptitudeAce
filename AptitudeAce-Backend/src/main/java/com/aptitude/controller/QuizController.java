@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aptitude.entity.Category;
+import com.aptitude.entity.SubCategory;
+import com.aptitude.dto.QuizDto;
 import com.aptitude.entity.Quiz;
 import com.aptitude.service.QuizService;
 
@@ -28,7 +29,7 @@ public class QuizController {
 
     //add quiz service
     @PostMapping("/")
-    public ResponseEntity<Quiz> add(@RequestBody Quiz quiz) {
+    public ResponseEntity<Quiz> add(@RequestBody QuizDto quiz) {
         return ResponseEntity.ok(this.quizService.addQuiz(quiz));
     }
 
@@ -40,13 +41,13 @@ public class QuizController {
     }
 
     //get quiz
-    @GetMapping("/")
+    @GetMapping("/getAll")
     public ResponseEntity<?> quizzes() {
         return ResponseEntity.ok(this.quizService.getQuizzes());
     }
 
     //get single quiz
-    @GetMapping("/{qid}")
+    @GetMapping("/getById/{qid}")
     public Quiz quiz(@PathVariable("qid") Long qid) {
         return this.quizService.getQuiz(qid);
     }
@@ -57,11 +58,11 @@ public class QuizController {
         this.quizService.deleteQuiz(qid);
     }
 
-    @GetMapping("/category/{cid}")
-    public List<Quiz> getQuizzesOfCategory(@PathVariable("cid") Long cid) {
-        Category category = new Category();
-        category.setCid(cid);
-        return this.quizService.getQuizzesOfCategory(category);
+    @GetMapping("/getBySubCategory/{cid}")
+    public List<Quiz> getQuizzesOfSubCategory(@PathVariable("cid") Long cid) {
+        SubCategory SubCategory = new SubCategory();
+        SubCategory.setCid(cid);
+        return this.quizService.getQuizzesOfSubCategory(SubCategory);
     }
 
     //get active quizzes
@@ -70,12 +71,12 @@ public class QuizController {
         return this.quizService.getActiveQuizzes();
     }
 
-    //get active quizzes of category
-    @GetMapping("/category/active/{cid}")
+    //get active quizzes of SubCategory
+    @GetMapping("/subCategory/active/{cid}")
     public List<Quiz> getActiveQuizzes(@PathVariable("cid") Long cid) {
-        Category category = new Category();
-        category.setCid(cid);
-        return this.quizService.getActiveQuizzesOfCategory(category);
+        SubCategory SubCategory = new SubCategory();
+        SubCategory.setCid(cid);
+        return this.quizService.getActiveQuizzesOfSubCategory(SubCategory);
     }
 
 

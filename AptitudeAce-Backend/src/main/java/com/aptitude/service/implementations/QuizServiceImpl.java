@@ -2,14 +2,17 @@ package com.aptitude.service.implementations;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aptitude.entity.Category;
+import com.aptitude.entity.SubCategory;
+import com.aptitude.dto.QuizDto;
 import com.aptitude.entity.Quiz;
 import com.aptitude.repository.QuizRepository;
+import com.aptitude.repository.SubCategoryRepository;
 import com.aptitude.service.QuizService;
 
 import jakarta.transaction.Transactional;
@@ -20,9 +23,21 @@ public class QuizServiceImpl implements QuizService {
 	
     @Autowired
     private QuizRepository quizRepository;
+    
+    @Autowired
+    private SubCategoryRepository subCategoryRepository;
 
     @Override
-    public Quiz addQuiz(Quiz quiz) {
+    public Quiz addQuiz(QuizDto quizDto) {
+    	
+    	SubCategory subCategory = subCategoryRepository.findById(quizDto.getSubCategoryId()).get();
+    	Quiz quiz = new Quiz();
+    	quiz.setTitle(quizDto.getTitle());
+    	quiz.setDescription(quizDto.getDescription());
+    	quiz.setActive(quizDto.isActive());
+    	quiz.setMaxMarks(quizDto.getMaxMarks());
+    	quiz.setNumberOfQuestions(quizDto.getNumberOfQuestions());
+    	quiz.setCategory(subCategory);
         return this.quizRepository.save(quiz);
     }
 
@@ -47,8 +62,8 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
-    public List<Quiz> getQuizzesOfCategory(Category category) {
-        return this.quizRepository.findBycategory(category);
+    public List<Quiz> getQuizzesOfSubCategory(SubCategory SubCategory) {
+        return this.quizRepository.findBySubCategory(SubCategory);
     }
 
 
@@ -60,8 +75,8 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
-    public List<Quiz> getActiveQuizzesOfCategory(Category c) {
-        return this.quizRepository.findByCategoryAndActive(c, true);
+    public List<Quiz> getActiveQuizzesOfSubCategory(SubCategory c) {
+        return this.quizRepository.findBySubCategoryAndActive(c, true);
     }
 
 }

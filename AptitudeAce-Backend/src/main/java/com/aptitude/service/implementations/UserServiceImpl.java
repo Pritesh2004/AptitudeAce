@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aptitude.entity.User;
+import com.aptitude.entity.UserQuery;
 import com.aptitude.entity.UserRole;
 import com.aptitude.helper.UserFoundException;
+import com.aptitude.repository.QueryRepository;
 import com.aptitude.repository.RoleRepository;
 import com.aptitude.repository.UserRepository;
 import com.aptitude.service.UserService;
@@ -20,6 +22,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RoleRepository roleRepo;
+    
+    @Autowired
+    private QueryRepository queryRepository;
 
     @Override
     public User createUser(User user, Set<UserRole> userRoles) throws UserFoundException {
@@ -40,5 +45,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long userId) {
         userRepo.deleteById(userId);
+    }
+    
+    public UserQuery addQuery(UserQuery userQuery) {
+        // Save user query
+        return queryRepository.save(userQuery);
     }
 }

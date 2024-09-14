@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import com.aptitude.dto.VerifyEmailDto;
 import com.aptitude.entity.Role;
 import com.aptitude.entity.User;
+import com.aptitude.entity.UserQuery;
 import com.aptitude.entity.UserRole;
 import com.aptitude.service.MailSenderService;
 import com.aptitude.service.implementations.UserServiceImpl;
@@ -67,4 +68,22 @@ public class UserController {
         mailService.sendEmail(mailDto.getEmail(), "Verify Your Email", "Otp for Email Verification is " + mailDto.getOtp());
         return ResponseEntity.ok("OTP Sent successfully.");
     }
+    
+    @PostMapping("/query")
+	public ResponseEntity<?> postQuery(@RequestBody UserQuery userQuery) {
+		try {
+			String emailBody = "Your Query Has Been Successfully Saved! " + "\n\n" +
+					"We appreciate your interest in our services and will be in touch with you shortly. " + "\n\n" +
+					"Thank you for choosing our Services..\n\n" +
+					"Best regards,\n" +
+					"AptitudeAce";
+
+			mailService.sendEmail(userQuery.getEmail(), "AptitudeAce", emailBody);
+			
+			UserQuery newQuery = userService.addQuery(userQuery);
+			return new ResponseEntity<>(newQuery, HttpStatus.CREATED);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		}
+	}
 }

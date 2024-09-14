@@ -1,10 +1,5 @@
 package com.aptitude.entity;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,35 +7,33 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Category {
-	
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long cid;
+    private Long id;
 
     private String title;
 
-    private String description;
-
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private Set<Quiz> quizzes = new LinkedHashSet<>();
+    private Set<SubCategory> subCategories = new LinkedHashSet<>();
 
     public Category() {
     }
 
-    public Category(String title, String description) {
-        this.title = title;
-        this.description = description;
+    public Long getId() {
+        return id;
     }
 
-    public Long getCid() {
-        return cid;
-    }
-
-    public void setCid(Long cid) {
-        this.cid = cid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -51,11 +44,11 @@ public class Category {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public Set<SubCategory> getSubCategories() {
+        return subCategories;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSubCategories(Set<SubCategory> subCategories) {
+        this.subCategories = subCategories;
     }
 }
